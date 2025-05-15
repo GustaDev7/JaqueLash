@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaque Lash Studio - Alongamento de Cílios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #FFC0CB 0%, #E6E6FA 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        .testimonial-card {
+            min-width: 100%;
+        }
+        @media (min-width: 768px) {
+            .testimonial-card {
+                min-width: 50%;
+            }
+        }
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                min-width: 33.333%;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+<!-- Header/Navigation -->
+<header class="bg-white shadow-sm fixed w-full z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-pink-500">
+                <span class="text-gray-800">Jaque</span> Lash Studio
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-pink-500">Início</a>
+                <a href="#about" class="text-gray-800 hover:text-pink-500">Sobre</a>
+                <a href="#services" class="text-gray-800 hover:text-pink-500">Serviços</a>
+                <a href="#gallery" class="text-gray-800 hover:text-pink-500">Galeria</a>
+                <a href="#contact" class="text-gray-800 hover:text-pink-500">Contato</a>
+            </nav>
+
+            <!-- Mobile Navigation Button -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl text-gray-800"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md absolute w-full left-0 top-16">
+            <nav class="flex flex-col space-y-2 py-4">
+                <a href="#home" class="text-gray-800 hover:text-pink-500 px-6 py-2">Início</a>
+                <a href="#about" class="text-gray-800 hover:text-pink-500 px-6 py-2">Sobre</a>
+                <a href="#services" class="text-gray-800 hover:text-pink-500 px-6 py-2">Serviços</a>
+                <a href="#gallery" class="text-gray-800 hover:text-pink-500 px-6 py-2">Galeria</a>
+                <a href="#contact" class="text-gray-800 hover:text-pink-500 px-6 py-2">Contato</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Script to Handle Mobile Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Toggle the mobile menu visibility
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate-slide-down');
+        });
+
+        // Close menu if clicked outside
+        window.addEventListener('click', function (e) {
+            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <!-- Smooth Dropdown Animation -->
+    <style>
+        .animate-slide-down {
+            animation: slide-down 0.3s ease-out forwards;
+        }
+
+        @keyframes slide-down {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero-bg pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-b from-pink-100 via-white to-pink-50">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center animate-fade-in">
+        
+        <!-- Text Content -->
+        <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left space-y-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 mb-4 drop-shadow-lg">
+                Realce Sua Beleza com <span class="text-pink-600">Cílios Perfeitos</span>
+            </h1>
+            <p class="text-xl text-gray-700 mb-8">
+                Transforme seu olhar com os melhores alongamentos de cílios
+            </p>
+            
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#https://wa.me/556185999451" class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-3 rounded-full text-center font-medium transition duration-300 hover:brightness-110 shadow-lg">
+                    Agende Agora
+                </a>
+                <a href="#services" class="border-2 border-pink-600 text-pink-600 hover:bg-pink-100 px-8 py-3 rounded-full text-center font-medium transition duration-300 hover:shadow-md">
+                    Ver Catálogo
+                </a>
+            </div>
+        </div>
+
+        <!-- Image Content -->
+        <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
+            <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white shadow-xl animate-glow">
+                <img src="hero.png" alt="Close-up de olhos com cílios volumosos" class="w-full h-full object-cover">
+                <!-- Glow Effect -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-pink-400 via-transparent to-pink-400 opacity-20 animate-pulse"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS Animations -->
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 0, 128, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(255, 0, 128, 0.8); }
+        }
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+        .animate-glow {
+            animation: glow 2s infinite alternate;
+        }
+    </style>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <!-- Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 drop-shadow-md">Vantagens Exclusivas</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Por que escolher o Jaque Lash Studio</p>
+        </div>
+        
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Benefit 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 text-center min-h-[300px] flex flex-col items-center justify-between">
+                <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                    <i class="fas fa-feather-alt text-3xl text-pink-600"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Cílios Leves e Naturais</h3>
+                <p class="text-gray-600">Extensões premium que são leves e confortáveis, proporcionando um visual natural e elegante.</p>
+            </div>
+            
+            <!-- Benefit 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 text-center min-h-[300px] flex flex-col items-center justify-between">
+                <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                    <i class="fas fa-heart text-3xl text-pink-600"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Aplicação Indolor</h3>
+                <p class="text-gray-600">Nossa técnica especializada garante um procedimento completamente indolor e relaxante.</p>
+            </div>
+            
+            <!-- Benefit 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 text-center min-h-[300px] flex flex-col items-center justify-between">
+                <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                    <i class="fas fa-calendar-check text-3xl text-pink-600"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Durabilidade Garantida</h3>
+                <p class="text-gray-600">Com os cuidados adequados, seus cílios podem durar até 4 semanas mantendo o visual perfeito.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS for Animations -->
+    <style>
+        .hover:scale-105 {
+            transition: transform 0.3s ease;
+        }
+        .hover:scale-105:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Galeria de Transformações</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Veja os resultados incríveis que podemos alcançar</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            <!-- Gallery Item -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105" onclick="openLightbox(this)">
+                <img src="g7.jpg" alt="Transformação de cílios" class="w-full h-56 object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                    <i class="fas fa-search-plus text-white text-3xl"></i>
+                </div>
+            </div>
+
+            <!-- Repeat Gallery Items -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105" onclick="openLightbox(this)">
+                <img src="g2.jpg" alt="Transformação de cílios" class="w-full h-56 object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                    <i class="fas fa-search-plus text-white text-3xl"></i>
+                </div>
+            </div>
+
+             <!-- Repeat Gallery Items -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105" onclick="openLightbox(this)">
+                <img src="g3.jpg" alt="Transformação de cílios" class="w-full h-56 object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                    <i class="fas fa-search-plus text-white text-3xl"></i>
+                </div>
+            </div>
+
+             <!-- Repeat Gallery Items -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105" onclick="openLightbox(this)">
+                <img src="g4.jpg" alt="Transformação de cílios" class="w-full h-56 object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                    <i class="fas fa-search-plus text-white text-3xl"></i>
+                </div>
+            </div>
+
+             <!-- Repeat Gallery Items -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105" onclick="openLightbox(this)">
+                <img src="g5.jpg" alt="Transformação de cílios" class="w-full h-56 object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                    <i class="fas fa-search-plus text-white text-3xl"></i>
+                </div>
+            </div>
+
+             <!-- Repeat Gallery Items -->
+            <div class="gallery-item relative rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105" onclick="openLightbox(this)">
+                <img src="g6.jpg" alt="Transformação de cílios" class="w-full h-56 object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                    <i class="fas fa-search-plus text-white text-3xl"></i>
+                </div>
+            </div>
+
+            
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+                <div class="relative">
+                    <img id="lightbox-img" src="" alt="Imagem Ampliada" class="max-w-full max-h-full rounded-lg shadow-2xl">
+                    <button class="absolute top-2 right-2 text-white text-3xl" onclick="closeLightbox()">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Script -->
+    <script>
+        function openLightbox(element) {
+            // Verifica se o elemento clicado contém uma imagem
+            const img = element.querySelector('img');
+            if (img) {
+                const imgSrc = img.src;
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = imgSrc;
+                lightbox.classList.remove('hidden');
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+        }
+
+        // Close lightbox on outside click
+        window.addEventListener('click', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    </script>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-gradient-to-b from-pink-100 to-pink-200">
+    <div class="container mx-auto px-6">
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Depoimentos</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">O que nossas clientes dizem sobre nós</p>
+        </div>
+        
+        <!-- Testimonials Carousel -->
+        <div class="relative overflow-hidden">
+            <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-carousel">
+                
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card px-4 flex-shrink-0 w-full md:w-1/3">
+                    <div class="bg-white rounded-xl p-8  hover:shadow-xl transition-all min-h-[300px] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Carolina" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800">Ana Carolina</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"Adorei o resultado do meu alongamento! Ficou tão natural que ninguém percebe que são extensões. A Jaque é extremamente cuidadosa e atenciosa."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card px-4 flex-shrink-0 w-full md:w-1/3">
+                    <div class="bg-white rounded-xl p-8 hover:shadow-xl transition-all min-h-[300px] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Juliana Mendes" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800">Juliana Mendes</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"O volume russo ficou incrível e durou mais de 3 semanas perfeito. Atendimento impecável!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card px-4 flex-shrink-0 w-full md:w-1/3">
+                    <div class="bg-white rounded-xl hover:shadow-xl transition-all min-h-[300px] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Fernanda Oliveira" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-800">Fernanda Oliveira</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"Ambiente aconchegante e cílios perfeitos! Super recomendo o Jaque Lash Studio."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md ml-2 hover:bg-pink-100" id="prev-testimonial">
+                <i class="fas fa-chevron-left text-pink-600"></i>
+            </button>
+            <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md mr-2 hover:bg-pink-100" id="next-testimonial">
+                <i class="fas fa-chevron-right text-pink-600"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel Script -->
+    <script>
+        const carousel = document.getElementById('testimonial-carousel');
+        const prevBtn = document.getElementById('prev-testimonial');
+        const nextBtn = document.getElementById('next-testimonial');
+
+        let scrollAmount = 0;
+
+        prevBtn.addEventListener('click', () => {
+            scrollAmount -= carousel.clientWidth;
+            if (scrollAmount < 0) scrollAmount = carousel.scrollWidth - carousel.clientWidth;
+            carousel.style.transform = `translateX(-${scrollAmount}px)`;
+        });
+
+        nextBtn.addEventListener('click', () => {
+            scrollAmount += carousel.clientWidth;
+            if (scrollAmount >= carousel.scrollWidth) scrollAmount = 0;
+            carousel.style.transform = `translateX(-${scrollAmount}px)`;
+        });
+    </script>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <!-- Title and Description -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 drop-shadow-md">Nossos Serviços</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Técnicas exclusivas para cada tipo de olhar e preferência</p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Service Card Template -->
+            <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                <div class="h-52 overflow-hidden">
+                    <img src="hero.png" alt="Alongamento Clássico" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Alongamento Clássico</h3>
+                    <p class="text-gray-600 mb-4">Efeito natural e elegante com uma extensão para cada cílio natural.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600 flex items-center gap-1">
+                            <i class="fas fa-heart"></i> R$ 180
+                        </span>
+                        <a href="#https://wa.me/556185999451" class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:brightness-110 transition duration-300">
+                            Agendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volume Russo -->
+            <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                <div class="h-52 overflow-hidden">
+                    <img src="hero.png" alt="Volume Russo" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Volume Russo</h3>
+                    <p class="text-gray-600 mb-4">Volume marcante com múltiplas extensões por cílio natural.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600 flex items-center gap-1">
+                            <i class="fas fa-heart"></i> R$ 220
+                        </span>
+                        <a href="#https://wa.me/556185999451" class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:brightness-110 transition duration-300">
+                            Agendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alongamento Híbrido -->
+            <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                <div class="h-52 overflow-hidden">
+                    <img src="hero.png" alt="Alongamento Híbrido" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Alongamento Híbrido</h3>
+                    <p class="text-gray-600 mb-4">Combinação equilibrada de volume e naturalidade.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600 flex items-center gap-1">
+                            <i class="fas fa-heart"></i> R$ 200
+                        </span>
+                        <a href="#https://wa.me/556185999451" class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:brightness-110 transition duration-300">
+                            Agendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="mt-12 text-center">
+            <a href="#https://wa.me/556185999451" class="inline-block bg-pink-600 text-white px-8 py-3 rounded-full font-medium hover:bg-pink-700 transition duration-300">
+                Ver Todos os Serviços
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 animate-fade-in">
+
+        <!-- Text Content -->
+        <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12 text-center md:text-left">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 drop-shadow-md">Sobre o Jaque Lash Studio</h2>
+            <p class="text-lg text-gray-600 mb-4">
+                Realce sua beleza com alongamentos de cílios feitos com precisão e produtos de alta qualidade.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Desde 2023, somos referência na região, garantindo resultados naturais e duradouros.
+            </p>
+            <p class="text-gray-700">
+                Nossa missão é transformar olhares com elegância e confiança.
+            </p>
+        </div>
+
+
+            <!-- Image Content -->
+            <div class="md:w-1/2 w-full flex justify-center">
+                <div class="relative w-full max-w-xs md:max-w-md h-72 md:h-96 rounded-xl overflow-hidden shadow-lg animate-glow">
+                    <img src="hero.png" alt="Jaque, especialista em alongamento de cílios" class="w-full h-full object-cover rounded-xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 md:p-6 rounded-xl">
+                        <div class="text-white drop-shadow-md">
+                            <h3 class="text-xl md:text-2xl font-semibold">Jaque Oliveira</h3>
+                            <p class="text-sm text-pink-300">Especialista em Alongamento de Cílios</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CSS Animations -->
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 20, 147, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.8); }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+
+        .animate-glow {
+            animation: glow 2s infinite alternate;
+        }
+    </style>
+</section>
+
+
+<!-- CTA Section -->
+<section id="contact" class="py-20 bg-gradient-to-b from-pink-50 to-pink-100">
+    <div class="container mx-auto px-6 text-center">
+        <!-- Title -->
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">Transforme Seu Olhar Hoje Mesmo!</h2>
+        <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            Realce sua beleza com cílios perfeitos e duradouros. Agende agora e eleve sua autoestima!
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+            <a href="https://wa.me/556185999451" class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-3 rounded-full text-center font-medium transition duration-300 hover:brightness-110 shadow-lg">
+                <i class="fab fa-whatsapp text-2xl mr-3 animate-pulse"></i>
+                Agendar pelo WhatsApp
+            </a>
+            <a href="https://instagram.com/jaquelashstudio" class="border-2 border-pink-600 text-pink-600 hover:bg-pink-100 px-8 py-3 rounded-full text-center font-medium transition duration-300 hover:shadow-md">
+                <i class="fab fa-instagram text-2xl mr-3"></i>
+                Nosso Instagram
+            </a>
+        </div>
+    </div>
+
+    <!-- CSS for Animations -->
+    <style>
+        .animate-pulse {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-b from-gray-900 to-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <!-- Footer Columns -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Column 1: Logo and Description -->
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Jaque Lash Studio</h3>
+                <p class="text-gray-400">Especialistas em alongamento de cílios, proporcionando beleza e elegância para seu olhar.</p>
+            </div>
+
+            <!-- Column 2: Opening Hours -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Horário de Funcionamento</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li>Segunda a Sexta: 9h - 19h</li>
+                    <li>Sábado: 9h - 15h</li>
+                    <li>Domingo: Fechado</li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><i class="fas fa-phone-alt mr-2"></i> (61) 98599-9451</li>
+                    <li><i class="fas fa-envelope mr-2"></i> jaqueline.o.s107@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> QR 429 Conjunto 15 Lote 1 Sala 101, Samambaia Norte, Brasília - DF, 72329-015</li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Social Media -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Redes Sociais</h3>
+                <div class="flex space-x-4">
+                    <a href="#https://wa.me/556185999451" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#https://www.instagram.com/studio_jaquelash/" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 mb-4 md:mb-0">© 2023 Jaque Lash Studio. Todos os direitos reservados.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Política de Privacidade</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Termos de Uso</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Animation Styles -->
+    <style>
+        .hover\:scale-110:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</footer>
+
+
+    <!-- JavaScript -->
+    <script>
+    
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle (would need implementation)
+    </script>
+</body>
+</html>
